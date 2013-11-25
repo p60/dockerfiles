@@ -2,8 +2,7 @@ FROM ubuntu:quantal
 MAINTAINER Jason Staten <jstaten@peer60.com>
 
 ADD sources.list /etc/apt/sources.list.d/peer60-redis.list
-RUN apt-get update && apt-get -y --force-yes install redis-server \
-      && apt-get update \
+RUN apt-get update \
       && apt-get -y --force-yes install redis-server \
       && rm -rf /var/lib/apt/lists/* \
       && apt-get clean
