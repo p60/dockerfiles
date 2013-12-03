@@ -8,8 +8,7 @@ RUN apt-get update \
       && apt-get clean
 ADD redis.conf /etc/redis/redis.conf
 
-# Disable until 0.7
-# USER redis
+USER redis
 
 EXPOSE 6379
 CMD /usr/bin/redis-server /etc/redis/redis.conf
