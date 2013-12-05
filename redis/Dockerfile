@@ -11,4 +11,4 @@ ADD redis.conf /etc/redis/redis.conf
 USER redis
 
 EXPOSE 6379
-CMD /usr/bin/redis-server /etc/redis/redis.conf
+CMD ["/usr/bin/redis-server", "/etc/redis/redis.conf"]

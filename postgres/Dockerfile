@@ -24,6 +24,7 @@ ADD postgresql.conf /etc/postgresql/9.3/main/postgresql.conf
 USER postgres
 
 EXPOSE 5432
-CMD /usr/lib/postgresql/9.3/bin/postgres -D \
-    /var/lib/postgresql/9.3/main -c \
-    config_file=/etc/postgresql/9.3/main/postgresql.conf
+CMD ["/usr/lib/postgresql/9.3/bin/postgres", \
+  "-D", "/var/lib/postgresql/9.3/main", \
+  "-c", "config_file=/etc/postgresql/9.3/main/postgresql.conf" \
+]
