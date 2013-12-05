@@ -13,6 +13,10 @@ ADD sources.list /etc/apt/sources.list.d/peer60-postgres.list
 
 RUN wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
 
+RUN adduser --system --disabled-login --home /var/lib/postgresql --no-create-home \
+            --group --gecos "PostgreSQL administrator" --shell /bin/bash \
+            --uid 5432 postgres
+
 RUN apt-get update --no-list-cleanup\
       && DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install postgresql-9.3 \
       && rm -rf /var/lib/apt/lists/* \
